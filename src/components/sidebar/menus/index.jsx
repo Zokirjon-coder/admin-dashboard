@@ -12,7 +12,7 @@ const Menus = ({ openSidebar}) => {
   return (
     <Container openSidebar={openSidebar}>
         {
-        menus.map((info) => <MenuItem key={info.id} info={info} btnClick={btnClick} />)
+        menus.map((info) => <MenuItem key={info.id} openSidebar={openSidebar} info={info} btnClick={btnClick} />)
         }
     </Container>
   )

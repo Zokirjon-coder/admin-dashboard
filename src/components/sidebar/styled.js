@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  max-width: ${({openSidebar})=>openSidebar?'346px':'68px'};
+  transition: 0.5s;
+  max-width: ${({ openSidebar }) => (openSidebar ? "346px" : "68px")};
   width: 100%;
   background: #f9fafb;
 `;

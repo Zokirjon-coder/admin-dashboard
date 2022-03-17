@@ -1,17 +1,30 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 100%;
+  box-sizing: border-box;
+  width: ${({ openSidebar }) => (openSidebar? "100%" : "36px")};
   border-radius: 18px;
   background: ${({ active }) => (active === "true" ? "#fff" : "transparent")};
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: ${({ openSidebar }) =>
+    openSidebar? "flex-start" : "center"};
   gap: 15px;
-  box-shadow: 0px 20px 38px rgba(0, 0, 0, 0.06),
-    0px 7px 46px rgba(0, 0, 0, 0.06), 0px 8px 15px rgba(0, 0, 0, 0.06);
+  ${({ active }) =>
+    active === "true" &&
+    "box-shadow: 0px 20px 38px rgba(0, 0, 0, 0.06), 0px 7px 46px rgba(0, 0, 0, 0.06), 0px 8px 15px rgba(0, 0, 0, 0.06)"};
   border-radius: 5px;
-  height: 44px;
+  height: ${({ openSidebar }) => (openSidebar === "true" ? "44px" : "36px")};
+  padding: ${({ openSidebar }) =>
+    openSidebar? "11px 15px" : "18px"};
+  margin-bottom: 23px;
+  cursor: pointer;
+  :hover {
+    box-shadow: 0px 20px 38px rgba(0, 0, 0, 0.06),
+      0px 7px 46px rgba(0, 0, 0, 0.06), 0px 8px 15px rgba(0, 0, 0, 0.06);
+    background: #fff;
+    transition: 0.3s;
+  }
 `;
 
 export const Icon = styled.div`
@@ -25,5 +38,9 @@ export const Icon = styled.div`
 export const MenuName = styled.div`
   font-size: 18px;
   font-weight: 600;
-  color: ${({ active }) => (active === "true" ? "#fff" : "#000")};
+  color: #374151;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: 0.5s;
+  ${({ openSidebar }) => (openSidebar === "true" ? "width: 0" : null)};
 `;
