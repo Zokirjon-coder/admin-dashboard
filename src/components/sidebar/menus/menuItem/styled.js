@@ -41,5 +41,9 @@ export const MenuName = styled.div`
   overflow: hidden;
   white-space: nowrap;
   transition: 0.5s;
-  ${({ openSidebar }) => (openSidebar ? "width: 100%" : "width: 0")};
+  ${({ openSidebar }) => (openSidebar ? {
+    width: "100%"
+  } : {
+    width: 0
+  })};
 `;

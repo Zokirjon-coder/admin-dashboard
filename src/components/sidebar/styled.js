@@ -12,4 +12,6 @@ export const InnerContainer = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
+  min-height: 100vh;
+  position: relative;
 `;
